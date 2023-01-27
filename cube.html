@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <title>cube</title>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-image: conic-gradient(transparent 10%, rgba(255, 255, 255, .8), transparent 90%),
+        linear-gradient(to left top, #0000ff 80%, #ffff00 90%);
+    }
+
+    .wrapper {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cube {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      perspective: 1000px;
+      margin: 500px auto;
+    }
+
+    .d3 {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      position: relative;
+      top: 0;
+      left: 0;
+      font-size: 50px;
+      color: transparent;
+      animation: rotate 10s infinite linear;
+
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0);
+      }
+
+      100% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+      }
+    }
+
+    .p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: .5;
+      transition: .1s linear;
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%
+    }
+
+    .cube:hover .left {
+      transform: rotateY(-90deg) translateZ(200px)
+    }
+
+    .cube:hover .right {
+      transform: rotateY(90deg) translateZ(200px)
+    }
+
+    .cube:hover .top {
+      transform: rotateX(90deg) translateZ(200px)
+    }
+
+    .cube:hover .bottom {
+      transform: rotateX(-90deg) translateZ(200px)
+    }
+
+    .cube:hover .back {
+      transform: rotatex(180deg) translateZ(200px)
+    }
+
+    .cube:hover .front {
+      transform: rotate(0deg) translateZ(200px)
+    }
+
+    .left {
+      background: beige;
+      transform: rotatey(-90deg) translateZ(100px);
+    }
+
+    .right {
+      background: blue;
+      transform: rotatey(90deg) translateZ(100px);
+    }
+
+    .top {
+      background: yellow;
+      transform: rotatex(90deg) translatez(100px);
+    }
+
+    .bottom {
+      background: green;
+      transform: rotatex(-90deg) translateZ(100px);
+    }
+
+    .back {
+      background: red;
+      transform: rotateX(180deg) translateZ(100px);
+    }
+
+    .front {
+      background: grey;
+      transform: rotate(0) translateZ(100px);
+    }
+
+    .in_d3 {
+      width: 50%;
+      height: 50%;
+      transform-style: preserve-3d;
+      position: relative;
+      top: 25%;
+      left: 25%;
+      font-size: 16px;
+      color: transparent;
+      animation: play 10s infinite linear alternate;
+    }
+
+    @keyframes play {
+      0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0);
+      }
+
+      100% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+      }
+    }
+
+    .in_p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .1s linear;
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%
+    }
+
+
+    .in_left {
+      background: beige;
+      transform: rotatey(-90deg) translateZ(50px);
+    }
+
+    .in_right {
+      background: blue;
+      transform: rotatey(90deg) translateZ(50px);
+    }
+
+    .in_top {
+      background: yellow;
+      transform: rotatex(90deg) translatez(50px);
+    }
+
+    .in_bottom {
+      background: green;
+      transform: rotatex(-90deg) translateZ(50px);
+    }
+
+    .in_back {
+      background: red;
+      transform: rotateX(180deg) translateZ(50px);
+    }
+
+    .in_front {
+      background: grey;
+      transform: rotate(0) translateZ(50px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="cube">
+      <div class="d3">
+        <div class="p front">front</div>
+        <div class="p back">back</div>
+        <div class="p left">left</div>
+        <div class="p right">right</div>
+        <div class="p bottom">bottom</div>
+        <div class="p top">top</div>
+        <div class="in_d3">
+          <div class="in_p in_front">front</div>
+          <div class="in_p in_back">back</div>
+          <div class="in_p in_left">left</div>
+          <div class="in_p in_right">right</div>
+          <div class="in_p in_bottom">bottom</div>
+          <div class="in_p in_top">top</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
